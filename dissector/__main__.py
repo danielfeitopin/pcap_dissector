@@ -1,5 +1,5 @@
 import pyshark
-from .config import PCAP_FILE, CSV_FILE
+from .config import PCAP_FILE, CSV_FOLDER, CSV_FILE
 
 # Load fields
 from .fields import FRAME_INFO_FIELDS, STACK_FIELDS, MQTT_FIELDS
@@ -9,8 +9,8 @@ fields += STACK_FIELDS
 fields += MQTT_FIELDS
 
 # Ensure paths exist
-PCAP_FILE.mkdir(parents=True, exist_ok=True)
-CSV_FILE.mkdir(parents=True, exist_ok=True)
+assert PCAP_FILE.is_file()
+CSV_FOLDER.mkdir(parents=True, exist_ok=True)
 
 cap = pyshark.FileCapture(PCAP_FILE) # Select PCAP
 
