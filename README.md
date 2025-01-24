@@ -13,6 +13,41 @@
 
 </div>
 
+## Table of Contents
+
+- [Pcap Dissector](#pcap-dissector)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Acknowledgements](#acknowledgements)
+
+
+
+## Prerequisites
+
+### Installation
+
+Ensure `tshark` is installed:
+
+```sh
+sudo apt install tshark
+```
+
+Install Python dependencies from the provided `requirements.txt`:
+
+```sh
+pip install -r requirements.txt
+```
+
+## Usage
+
+Modify [`dissector/config.py`](<dissector/config.py>) and run the `dissector` package as a Python module:
+
+```
+python3 -m dissector
+```
+
 ## Acknowledgements
 
 Based on @joseAveleira's work: <https://github.com/joseAveleira/Dissector>.
