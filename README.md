@@ -58,12 +58,12 @@ python3 -m dissector -h
 ```
 
 ```
-usage: __main__.py [-h] -i PCAP_INPUT -o CSV_OUTPUT
+usage: python -m dissector [-h] -i PCAP_INPUT -o CSV_OUTPUT
 
 PCAP Dissector CLI
 
 options:
-  -h, --help            show this help message and exit
+  -h, --help                              show this help message and exit
   -i PCAP_INPUT, --pcap-input PCAP_INPUT  Path to the input PCAP file
   -o CSV_OUTPUT, --csv-output CSV_OUTPUT  Path to the output CSV file
 ```
