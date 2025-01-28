@@ -1,12 +1,15 @@
 import csv
-from pyshark import FileCapture
+import pyshark
 from .config import MAX_ROWS
 
 
-def process_pcap(cap: FileCapture, fields: list[str], csv_file: str) -> list:
+def process_pcap(input_file: str, fields: list[str], output_file: str) -> list:
+
+    # Open PCAP for reading
+    cap = pyshark.FileCapture(input_file, keep_packets=False)  # Select PCAP
 
     # Open CSV for writing
-    with open(csv_file, 'w', newline='') as f:
+    with open(output_file, 'w', newline='') as f:
 
         csvwriter = csv.writer(f)  # Get CSV writer
         csvwriter.writerow(fields)  # Write CSV header
