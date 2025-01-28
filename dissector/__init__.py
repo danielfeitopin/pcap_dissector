@@ -3,7 +3,7 @@ from pyshark import FileCapture
 from .config import MAX_ROWS
 
 
-def dump_to_csv(cap: FileCapture, fields: list[str], csv_file: str) -> list:
+def process_pcap(cap: FileCapture, fields: list[str], csv_file: str) -> list:
 
     # Open CSV for writing
     with open(csv_file, 'w', newline='') as f:
@@ -27,9 +27,10 @@ def dump_to_csv(cap: FileCapture, fields: list[str], csv_file: str) -> list:
                     #print("Error") # DEBUG
                     row.append("")
             counter += 1
-            print(f"Writing row {counter}")
-            print(f"{'-'*20}")
+            print(f"\rWriting row {counter}", end='')
             csvwriter.writerow(row)
 
             if counter == MAX_ROWS:
                 break
+
+        print()

@@ -61,3 +61,10 @@ MQTT_FIELDS = [
     "mqtt.willtopic",
     "mqtt.willtopic_len"
 ]
+
+def get_fields() -> list[str]:
+    fields: list[str] = []
+    fields += FRAME_INFO_FIELDS
+    fields += STACK_FIELDS
+    fields += MQTT_FIELDS
+    return fields
