@@ -20,6 +20,7 @@
   - [Prerequisites](#prerequisites)
     - [Installation](#installation)
   - [Usage](#usage)
+    - [Help](#help)
   - [Acknowledgements](#acknowledgements)
 
 
@@ -45,7 +46,26 @@ pip install -r requirements.txt
 Modify [`dissector/config.py`](<dissector/config.py>) and run the `dissector` package as a Python module:
 
 ```
-python3 -m dissector
+python3 -m dissector -i path/to/file.pcap -o path/to/file.csv
+```
+
+### Help
+
+A help menu is provided:
+
+```shell
+python3 -m dissector -h
+```
+
+```
+usage: __main__.py [-h] -i PCAP_INPUT -o CSV_OUTPUT
+
+PCAP Dissector CLI
+
+options:
+  -h, --help            show this help message and exit
+  -i PCAP_INPUT, --pcap-input PCAP_INPUT  Path to the input PCAP file
+  -o CSV_OUTPUT, --csv-output CSV_OUTPUT  Path to the output CSV file
 ```
 
 ## Acknowledgements
