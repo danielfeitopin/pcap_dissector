@@ -3,7 +3,7 @@ import pyshark
 from .config import MAX_ROWS
 
 
-def process_pcap(input_file: str, fields: list[str], output_file: str) -> list:
+def process_pcap(input_file: str, fields: list[str], output_file: str, max_rows: int = MAX_ROWS) -> None:
 
     # Open PCAP for reading
     cap = pyshark.FileCapture(input_file, keep_packets=False)  # Select PCAP
@@ -33,7 +33,7 @@ def process_pcap(input_file: str, fields: list[str], output_file: str) -> list:
             print(f"\rWriting row {counter}", end='')
             csvwriter.writerow(row)
 
-            if counter == MAX_ROWS:
+            if counter == max_rows:
                 break
 
         print()
