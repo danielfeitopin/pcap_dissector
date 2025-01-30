@@ -20,10 +20,11 @@
   - [Prerequisites](#prerequisites)
     - [Installation](#installation)
   - [Usage](#usage)
-    - [Help](#help)
+    - [CLI Mode](#cli-mode)
+      - [Help](#help)
+    - [Web mode](#web-mode)
+    - [Docker mode](#docker-mode)
   - [Acknowledgements](#acknowledgements)
-
-
 
 ## Prerequisites
 
@@ -43,13 +44,15 @@ pip install -r requirements.txt
 
 ## Usage
 
+### CLI Mode
+
 Modify [`dissector/config.py`](<dissector/config.py>) and run the `dissector` package as a Python module:
 
-```
+```sh
 python3 -m dissector -i path/to/file.pcap -o path/to/file.csv
 ```
 
-### Help
+#### Help
 
 A help menu is provided:
 
@@ -67,6 +70,30 @@ options:
   -i PCAP_INPUT, --pcap-input PCAP_INPUT  Path to the input PCAP file
   -o CSV_OUTPUT, --csv-output CSV_OUTPUT  Path to the output CSV file
 ```
+
+### Web mode
+
+A very simple web interface is provided:
+
+```sh
+python3 -m gunicorn -w 2 -b 0.0.0.0 webapp:app
+```
+
+### Docker mode
+
+Build docker image from the provided Dockerfile:
+
+```sh
+docker build -t dissector .
+```
+
+Run the docker container:
+
+```sh
+docker run -p "8000:8000" --name dissector dissector
+```
+
+Access to the web interface through the binded port: <http://localhost:8000>.
 
 ## Acknowledgements
 

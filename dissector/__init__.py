@@ -36,4 +36,4 @@ def process_pcap(input_file: str, fields: list[str], output_file: str, max_rows:
             if counter == max_rows:
                 break
 
-        print()
+        print(" Done!")
