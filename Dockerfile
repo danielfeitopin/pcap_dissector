@@ -15,5 +15,7 @@ RUN apt-get update && \
     apt-get install -y tshark && \
     rm -rf /var/lib/apt/lists/*
 
+EXPOSE 8000
+
 # Command to run the application
 CMD ["python3", "-m", "gunicorn", "-w", "2", "-b", "0.0.0.0", "webapp:app"]
