@@ -1,2 +1,2 @@
-MAX_ROWS: int = 1e4
+MAX_ROWS: int = None
 MAKE_OUTPUT_DIR: bool = True
